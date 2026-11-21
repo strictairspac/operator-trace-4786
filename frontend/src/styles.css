@@ -5,3 +5,20 @@
 .workspace{background-image:linear-gradient(oklch(80% .015 90 / .18) 1px,transparent 1px),linear-gradient(90deg,oklch(80% .015 90 / .18) 1px,transparent 1px);background-size:28px 28px}.sidebar{background:oklch(25% .018 90)}.sidebar nav button.active{background:oklch(34% .027 85);border-color:oklch(73% .1 80)}.sidebar .identity{border-color:oklch(43% .02 90)}.code-input{font-family:'Space Mono',monospace;font-size:10px;line-height:1.7;min-height:280px}.pipeline-mini{display:flex;gap:5px;align-items:center;flex-wrap:wrap;font-family:'Space Mono',monospace;font-size:9px}.pipeline-mini span{background:oklch(84% .04 85);padding:5px}.operator-strip{display:flex;gap:1px;background:var(--line);margin-bottom:30px;border:1px solid var(--line)}.operator-strip>div{flex:1;background:var(--paper);padding:18px}.operator-strip span{display:block;font-family:'Space Mono',monospace;font-size:10px;color:var(--rust)}.operator-strip b{display:block;font-family:'Space Mono',monospace;font-size:22px;margin:12px 0}.operator-strip small{color:var(--muted)}details{margin-bottom:15px}summary{cursor:pointer;font-family:'Space Mono',monospace;font-size:12px;padding:10px 0;border-top:1px solid var(--line)}.operator-glyph{display:flex;align-items:center;gap:12px;margin-top:55px;font-family:'Space Mono',monospace;font-size:12px}.operator-glyph i{font-style:normal;border:1px solid oklch(78% .07 80);padding:15px}.login-art{background:oklch(29% .023 90)}.login-art h1{font-weight:400}.evidence pre{background:oklch(86% .025 90)}@media(max-width:767px){.operator-strip{display:grid;grid-template-columns:1fr 1fr}.operator-strip b{font-size:18px}.operator-glyph{display:none}}
 .evidence>section,.split>section,.operator-strip>div{min-width:0}.result-head h2{overflow-wrap:anywhere}pre{max-width:100%}details{min-width:0}
 .evidence p{overflow-wrap:anywhere}
+.lockwait{border:1px solid var(--line);background:var(--light);padding:18px 20px;margin:0 0 26px}
+.lockwait.live{border-left:3px solid var(--rust)}
+.lockwait h3{margin-top:0}
+.lockwait p{font-size:12px;margin-bottom:6px}
+.lock-chain{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:14px 0 4px}
+.lock-node{border:1px solid var(--line);background:var(--paper);padding:9px 12px}
+.lock-node b{display:block;font-weight:500;font-size:12px}
+.lock-node em{font-size:10px}
+.lock-node.confirmed{border-color:var(--sage)}
+.lock-node.confirmed em{color:var(--sage)}
+.lock-node.unconfirmed{opacity:.55;border-style:dashed}
+.lock-node.pending em{color:var(--muted)}
+.lock-arrow{color:var(--muted);font-family:'Space Mono',monospace}
+.lockwait-item{border-top:1px solid var(--line);padding:12px 0}
+.lockwait-item>small{display:block;color:var(--muted)}
+.lockwarn{color:var(--rust);font-size:11px}
+.status.lockwait{color:var(--rust);margin-left:6px}

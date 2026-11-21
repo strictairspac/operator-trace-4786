@@ -40,6 +40,8 @@ seed三账号、三个数据集（240行日班、空数据、重复右键）、�
 
 DSL最多6步，首步仅scan readings；filter eq/gte/lte；hash_join仅readings.sensor_id=sensors.sensor_id且最多一次；group仅value的count/sum/avg。禁止eval、任意代码和任意SQL。最多100传感器、2000采样、10000连接输出行；超限失败，不保存部分结果。JSON非法、字段错误、非法算子、孤立引用、重复名有可恢复错误。任务使用Redis简单单消费者，进程崩溃后的running任务不自动重试，保留供人工复查后新建任务。
 
+结果落库被其他事务持锁卡住时，worker看门狗沿pg_blocking_pids从本次写入追到最后一个持锁事务，剖面页展示实时锁链；等待期间按轮复核链上证据（pid+事务id+事务开始时间），并发解锁或连接复用导致证据对不上的链标作未确认。等待解除后撤下实时链，确认过的链随剖面与导出留存。链采集失败自动重试，同一段持续等待只记一张等待单；无阻塞时结果照常落库。持锁方只显示来源类型（backend_type），不显示语句和采样值。
+
 ## 技术、目录与本地开发
 Python3.11 / FastAPI / SQLAlchemy / psycopg / Redis / PostgreSQL16；原生 HTML/CSS/JS ES modules / nginx1.27。五服务frontend/backend/worker/db/redis均健康探针，命名卷数据库/Redis/共享产物。DB/Redis健康后启动backend，backend健康后启worker/frontend。
 

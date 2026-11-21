@@ -1,0 +1,25 @@
+U ok 证据核对规则
+A ok 确认链留存 + 持锁方脱敏
+B ok 并发解锁改道 → 未确认/已确认并存
+ERROR:root:lock chain collect failed
+Traceback (most recent call last):
+  File "/workspace/backend/src/services/lockwaits.py", line 101, in tick
+    fresh=collect_chain(s,self.writer_pid)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/test-artifacts/gb-4105/test_lockwaits.py", line 89, in flaky
+    if calls['n']<=2:raise RuntimeError('采集探针故障')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: 采集探针故障
+ERROR:root:lock chain collect failed
+Traceback (most recent call last):
+  File "/workspace/backend/src/services/lockwaits.py", line 101, in tick
+    fresh=collect_chain(s,self.writer_pid)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/test-artifacts/gb-4105/test_lockwaits.py", line 89, in flaky
+    if calls['n']<=2:raise RuntimeError('采集探针故障')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: 采集探针故障
+C ok 采集失败重试 + 等待单去重
+D ok 普通结果照常落库
+E ok API 留证与脱敏
+ALL LOCKWAIT TESTS PASSED
